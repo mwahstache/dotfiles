@@ -1,0 +1,9 @@
+vim.opt_local.textwidth = 80
+vim.opt_local.wrap = false
+vim.opt_local.linebreak = false
+vim.opt_local.tabstop=8
+vim.opt_local.shiftwidth=8
+vim.opt_local.expandtab=false
+vim.cmd("setlocal formatoptions+=t")
+vim.cmd("setlocal formatoptions-=l")
+-- vim.cmd("setlocal comments+=/*")
