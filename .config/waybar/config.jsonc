@@ -1,0 +1,296 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "height": 50, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "reload_style_on_change": false,
+    "margin-top": 5,
+    "margin-left": 15,
+    "margin-right": 15,
+    "margin-bottom": -7,
+    "modules-left": [
+        "group/time",
+    ],
+    "modules-center": [
+        "group/hub",
+    ],
+    "modules-right": [
+        "group/apps",
+        "custom/padd",
+        "group/system",
+    ],
+    // Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "rotate": 0,
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+        "persistent-workspaces": {
+            "*" : 6
+        },
+        "format" : "{icon}",
+        "format-icons" : {
+            "active": "<span font='12'>󰮯</span>",
+            "empty": "<span font='8'></span>",
+            "default": "󰊠",
+        },
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰒲"
+        }
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "  {:%I:%M %p}",
+        "rotate": 0,
+        "format-alt": "  {:%I:%M %p  󰃭 %m·%d·%y}",
+        "tooltip-format": "<span>{calendar}</span>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "tooltip-format": "{icon} {percent}% ",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "wireplumber": {
+        "format": "{icon}  {volume}%",
+        "format-muted": " ",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "format-icons": ["", "", ""]
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "",
+        "format-muted": " ",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 5,
+    },
+
+    "custom/media": {
+        "format": "{icon} {text}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 20,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "on-click": "wlogout --buttons-per-row 2",
+    },
+    "custom/logout": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit 0"
+    },
+    "custom/lock": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "loginctl lock-session",
+    },
+    "custom/reboot": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "systemctl reboot",
+    },
+    "custom/notifications": {
+        "format" : " ",
+        "tooltip" : false,
+        "on-click" : "swaync-client -t"
+    },
+
+    "group/time": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/l_end",
+            "clock",
+            "custom/r_end",
+        ]
+    },
+
+    "group/hub": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/l_end",
+            "idle_inhibitor",
+            "custom/padd",
+            "hyprland/workspaces",
+            "custom/space",
+            "custom/notifications",
+            "custom/r_end",
+        ]
+    },
+    "group/system": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/l_end",
+            "backlight",
+            "custom/padd",
+            "battery",
+            "custom/padd",
+            "group/power-group",
+            "custom/r_end",
+        ]
+    },
+    "group/power-group": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/power",
+            "custom/lock",
+            "custom/space",
+            "custom/logout",
+            "custom/space",
+            "custom/reboot",
+            "custom/space",
+        ]
+    },
+    "group/apps": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/l_end",
+            "tray",
+            "custom/padd",
+            "wireplumber",
+            "custom/space",
+            "wireplumber#source",
+            "custom/r_end",
+        ]
+    },
+
+    // modules for padding //
+    "custom/space": {
+        "format": " ",
+        "interval": "once",
+        "tooltip": false,
+    },
+    "custom/l_end": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/r_end": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/sl_end": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/sr_end": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/rl_end": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/rr_end": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/padd": {
+        "format": "  ",
+        "interval" : "once",
+        "tooltip": false
+    }
+}
