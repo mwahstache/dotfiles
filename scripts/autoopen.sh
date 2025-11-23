@@ -1,3 +1,3 @@
 #!/bin/bash
-sleep 7
-hyprctl dispatch exec "[workspace 5 silent] thunderbird"
+sleep 10
+hyprctl dispatch exec "[workspace 6 silent] thunderbird"

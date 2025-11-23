@@ -36,6 +36,10 @@ export DOTREMINDERS="$XDG_CONFIG_HOME/remind"
 
 eval $(ssh-agent)
 
+# nix
 
-. "$HOME/.cargo/env"
+export PATH="$HOME/.nix-profile/bin"
+
+#
+# . "$HOME/.cargo/env"
 . "$HOME/.profile"

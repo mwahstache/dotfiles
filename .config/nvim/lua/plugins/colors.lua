@@ -1,21 +1,31 @@
-local purp = {
-  base = "#2f2333",
-  mantle = "#211a22",
-  surface0 = "#4d3251",
-  surface1 = "#6b4670",
-  surface2 = "#895990",
-  text = "#edebe4",
-  rosewater = "#f5e0dc",
-  lavender = "#c2caff",
-  red = "#f688a7",
-  peach = "#fcb385",
-  yellow = "#fbe2ad",
-  green = "#a3e79d",
-  teal = "#90e5d7",
-  blue = "#65a0ff",
-  mauve = "#caa1fc",
-  flamingo = "#f4cbcb",
+--Start flavours
+local theme = {
+  base = "#d6ced3",
+  mantle = "#dfdade",
+  crust = "#f7f5f6",
+  surface0 = "#bda8b8",
+  surface1 = "#bda4a3",
+  surface2 = "#687d81",
+  overlay0 = "#38354e",
+  overlay1 = "#15283b",
+  overlay2 = "#687d81",
+  text = "#15283b",
+  rosewater = "#cc4870",
+  flamingo = "#cc4870",
+  pink = "#c638a0",
+  mauve = "#a73dc7",
+  red = "#bb262d",
+  maroon = "#bb262d",
+  peach = "#ae490f",
+  yellow = "#ba7c00",
+  green = "#067328",
+  teal = "#00777d",
+  sky = "#3b6dd2",
+  sapphire = "#009da6",
+  blue = "#2956b1",
+  lavender = "#3b6dd2",
 }
+--End flavours
 
 return {
   {
@@ -24,15 +34,11 @@ return {
     opts = {
       transparent_background = true,
       color_overrides = {
-        mocha = purp,
+        all = theme,
       },
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
     end
   },
-  -- {
-  --   "RRethy/base16-nvim",
-  -- },
 }
-

@@ -84,7 +84,9 @@ return {
     %style
     \usepackage{microtype}
     \usepackage{fontspec}
-    \setmainfont{EBGaramond}
+    \setmainfont[
+    ItalicFont={EBGaramond Italic}
+    ]{EBGaramond}
 
     \usepackage[margin=1in]{geometry}
     \usepackage{setspace}
