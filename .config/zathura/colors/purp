@@ -1,0 +1,35 @@
+# Base16 Purp
+# Author: Mia Bennett
+
+set default-bg                  "#2f2333"
+set default-fg                  "#211a22"
+
+set statusbar-fg                "#97649f"
+set statusbar-bg                "#4d3251"
+
+set inputbar-bg                 "#2f2333"
+set inputbar-fg                 "#c2caff"
+
+set notification-bg             "#2f2333"
+set notification-fg             "#c2caff"
+
+set notification-error-bg       "#2f2333"
+set notification-error-fg       "#f688a7"
+
+set notification-warning-bg     "#2f2333"
+set notification-warning-fg     "#f688a7"
+
+set highlight-color             "#fbe2ad"
+set highlight-active-color      "#65a0ff"
+
+set completion-bg               "#211a22"
+set completion-fg               "#65a0ff"
+
+set completion-highlight-fg     "#c2caff"
+set completion-highlight-bg     "#65a0ff"
+
+set recolor-lightcolor          "#2f2333"
+set recolor-darkcolor           "#f5e0dc"
+
+set recolor                     "false"
+set recolor-keephue             "false"

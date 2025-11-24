@@ -1,0 +1,26 @@
+set recolor true
+set recolor-lightcolor "#1e1e2e"
+set recolor-darkcolor "#cdd6f4"
+set default-bg "#1e1e2e"
+set statusbar-bg "#1e1e2e"
+set inputbar-bg "#1e1e2e"
+set notification-error-bg "#1e1e2e"
+set notification-warning-bg "#1e1e2e"
+set completion-bg "#1e1e2e"
+set completion-highlight-bg "#cba6f7"
+set default-fg "#DCD7BA"
+set statusbar-fg "#DCD7BA"
+set inputbar-fg "#DCD7BA"
+set notification-error-fg "#f38ba8"
+set notification-warning-fg "#fab387"
+set completion-fg "#DCD7BA"
+set completion-highlight-fg "#1e1e2e"
+
+set highlight-color "rgba(148, 226, 213, .4)"
+set highlight-active-color "rgba(243, 139, 168, .5)"
+set highlight-foreground "#DCD7BA"
+
+# set highlight
+
+set font "monospace normal 11"
+map <Esc> nohlsearch

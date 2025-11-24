@@ -1,0 +1,41 @@
+set font "monospace normal 12"
+map <Esc> nohlsearch
+
+# Start flavours
+# Base16 Desk
+# Author: Mia B
+
+set default-bg                  "#d6ced3"
+set default-bg                  "rgba(214, 206, 211, 1)"
+set default-fg                  "#bda8b8"
+
+set statusbar-fg                "#38354e"
+set statusbar-bg                "#bda4a3"
+
+set inputbar-bg                 "#d6ced3"
+set inputbar-fg                 "#0b0f10"
+
+set notification-bg             "#d6ced3"
+set notification-fg             "#0b0f10"
+
+set notification-error-bg       "#d6ced3"
+set notification-error-fg       "#bb262d"
+
+set notification-warning-bg     "#d6ced3"
+set notification-warning-fg     "#bb262d"
+
+set highlight-color             "rgba(186, 124, 0, .3)"
+set highlight-active-color      "rgba(41, 86, 177, .3)"
+
+set completion-bg               "#bda8b8"
+set completion-fg               "#2956b1"
+
+set completion-highlight-fg     "#d6ced3"
+set completion-highlight-bg     "#2956b1"
+
+set recolor-lightcolor          "rgba(214, 206, 211, 0)"
+set recolor-darkcolor           "#0e0e1f"
+# End flavours
+
+set recolor                     "true"
+set recolor-keephue             "true"
