@@ -21,9 +21,9 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 # latex
-export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
-export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
+# export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
+# export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH"
+# export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
 
 # fzf
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
